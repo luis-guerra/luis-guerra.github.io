@@ -10,5 +10,4 @@ I like computer stuff, and I'm learning about Web Applications and other technol
 I hope you can find this blog interesting, at least.
 
 
-You can e-mail me @ [lguerramanrique@gmail.com][mail]
-[mail]: lguerramanrique@gmail.com
+You can e-mail me @ [lguerramanrique@gmail.com](lguerramanrique@gmail.com)
