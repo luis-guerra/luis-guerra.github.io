@@ -10,11 +10,11 @@ This Blog will be used as a memo-like diary online for myself.
 
 So the first step is done:
 
-Tasks | Achieved
-----------------
-Create a blog | x
-Fill it with useful information |
-Become good at programming | 
+| Tasks        | Achieved          |
+|:-------------|:------------------|
+| Create a blog           | x |
+| Fill it with useful information          |  |
+| Become good at programming           |  |
 
 Looks like `I` have a `long` way to go if i want to achieve my goals.
 
