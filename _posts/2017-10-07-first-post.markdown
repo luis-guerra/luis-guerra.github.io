@@ -23,7 +23,7 @@ Technologies I am interested in:
 - Ruby
 
 
-```Java
+```java
   for (; ;){
     System.out.println('Have a nice day!');
   }
