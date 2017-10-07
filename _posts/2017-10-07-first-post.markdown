@@ -15,7 +15,7 @@ So the first step is done:
 | Create a blog           | x |
 | Fill it with useful information          |  |
 | Become good at programming      |  |
-
+***
 Looks like `I` have a `long` way to go if i want to achieve my goals.
 
 Technologies I am interested in:
