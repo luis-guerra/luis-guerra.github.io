@@ -29,6 +29,6 @@ Technologies I am interested in:
 
 ```java
   for (; ;){
-    System.out.println('Have a nice day!');
+    System.out.println("Have a nice day!");
   }
 ```
