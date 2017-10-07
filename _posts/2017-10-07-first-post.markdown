@@ -12,9 +12,10 @@ So the first step is done:
 
 | Tasks        | Achieved          |
 |:-------------|:------------------|
-| Create a blog           | x |
+| Create a blog           |   x |
 | Fill it with useful information          |  |
-| Become good at programming           |  |
+| Become good at programming      |  |
+
 
 Looks like `I` have a `long` way to go if i want to achieve my goals.
 
