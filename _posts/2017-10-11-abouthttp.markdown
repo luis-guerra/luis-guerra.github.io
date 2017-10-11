@@ -4,7 +4,7 @@ title:  "Internet Protocols: HTTP"
 date:   2017-10-11 19:08:00 +0200
 ---
 
-###About this post
+### [](#header-3)About this post
 This post will be about the `HTTP protocol`.
 I will study how websites behave under certain conditions, analyse HTTP requests and hopefully do some tests with a JSON server.
 
@@ -25,7 +25,7 @@ The process is very straight-forward. *Just post the URL into the WHOis website 
 ####Examples
 
 #####google.com:
-[!googlewhois](https://i.imgur.com/3GAJHxE.png)
+![googlewhois](https://i.imgur.com/3GAJHxE.png)
 
 #####twitter.com:
-[!twitterwhois](https://i.imgur.com/fkNwF9T.png)
+![twitterwhois](https://i.imgur.com/fkNwF9T.png)
