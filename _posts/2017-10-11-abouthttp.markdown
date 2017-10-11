@@ -25,7 +25,7 @@ The process is very straight-forward. *Just post the URL into the WHOis website 
 ####Examples
 
 #####google.com:
-[!googlewhois](https://imgur.com/a/YbIFj)
+[!googlewhois](https://i.imgur.com/3GAJHxE.png)
 
 #####twitter.com:
 [!twitterwhois](https://i.imgur.com/fkNwF9T.png)
