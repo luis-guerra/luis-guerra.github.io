@@ -1,6 +1,6 @@
 ---
 layout: post
-  title:  "Internet Protocols: HTTP"
+title:  "Internet Protocols: HTTP"
 date:   2017-10-11 19:08:00 +0200
 ---
 
