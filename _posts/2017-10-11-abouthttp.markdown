@@ -10,7 +10,7 @@ I will study how websites behave under certain conditions, analyse HTTP requests
 
 * * *
 
-###Obtain info from a website
+### [](#header-3)Obtain info from a website
 I decided to go with [WHOis.net](https://www.whois.net) since it's a pretty popular tool to use as a website lookup tool.
 
 The process is very straight-forward. *Just post the URL into the WHOis website and it will tell you its info. Some of that info can be:*
@@ -22,10 +22,10 @@ The process is very straight-forward. *Just post the URL into the WHOis website 
 - Some Name Servers
 - Another (probably) useful info
 
-####Examples
+#### [](#header-4)Examples
 
-#####google.com:
+##### [](#header-5)google.com:
 ![googlewhois](https://i.imgur.com/3GAJHxE.png)
 
-#####twitter.com:
+##### [](#header-5)twitter.com:
 ![twitterwhois](https://i.imgur.com/fkNwF9T.png)
