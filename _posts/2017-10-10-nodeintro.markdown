@@ -1,8 +1,7 @@
 ---
 layout: post
-  title:  "NodeJS Test"
+title:  "NodeJS Test"
 date:   2017-10-10 17::02 +0200
-categories: jekyll update
 ---
 
 I created a very simple node.js app that opens up a web server on my local port 8080:
