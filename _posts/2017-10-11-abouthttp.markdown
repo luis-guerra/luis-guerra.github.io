@@ -29,3 +29,11 @@ The process is very straight-forward. *Just post the URL into the WHOis website 
 
 ##### [](#header-5)twitter.com:
 ![twitterwhois](https://i.imgur.com/fkNwF9T.png)
+
+* * *
+
+### [](#header-3) Analising HTTP traffic
+
+For this part, I will be using [Charles](https://www.charlesproxy.com). It's a pretty useful tool that allows me to see HTTP traffic, including requests, responses and `HTTP headers`. 
+
+getstatuscode.com
