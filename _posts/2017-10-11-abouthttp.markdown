@@ -43,13 +43,14 @@ We got a `200` status code as soon as google.com loaded up, that means that `the
 
 ![charles200](https://i.imgur.com/BNAb5ES.png)
 
-Charles gives us the option to see each of the responses, with their headers and contents, respectively:
+**Charles gives us the option to see each of the responses, with their headers and contents, respectively:**
 
 ![charlesoverview](https://i.imgur.com/VSR1DLs.png)
 
 ![charlesdata](https://i.imgur.com/4533sZi.png)
 
 From now on I will be using a website called [getstatuscode](http://getstatuscode.com/200), since it can be pretty hard to get specific status codes only by surfing normally.
+
 Here we have a `204` status code. It means that `the server has fulfilled the request but doesn't need to return a entity/body`:
 
 ![charles204](https://i.imgur.com/GoZ40lF.png)
