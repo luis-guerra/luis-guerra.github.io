@@ -93,7 +93,7 @@ Unfortunately, I couldn't get the cookies to show on Charles whenever I logged i
 ### [](#header-3)HTTP Request Methods
 
 For this part, we will install a JSON server via NPM with the following command:
-```shell
+```bash
 npm install -g json-server
 ```
 ![jsonshell](https://i.imgur.com/FQf6dXp.png)
@@ -105,7 +105,7 @@ As we can see, the JSON server was installed in `/usr/local/lib/node_modules/jso
 
 I will add some data to simulate a "real" enviroment:
 
-```JSON
+```json
 {
 
   "clientes": [
@@ -123,7 +123,7 @@ I will add some data to simulate a "real" enviroment:
 
 We can start the JSON server with the following command (you must be on the JSON-server directory):
 
-```shell
+```bash
 json-server --watch db.json
 ```
 
@@ -195,7 +195,7 @@ As we can see, the entry was successfully deleted:
 
 ![DELETE2](https://i.imgur.com/xXXVbor.png)
 
-Finally, we can see the transactions on the JSON server (although i did these tests at different times so it doesn't show all the requests):
+Finally, we can see the transactions on the JSON server (although i made these tests at different times so it doesn't show all the requests):
 
 ![log](https://i.imgur.com/SLP67Xq.png)
 
