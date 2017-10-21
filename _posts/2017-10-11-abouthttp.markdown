@@ -198,6 +198,3 @@ As we can see, the entry was successfully deleted:
 Finally, we can see the transactions on the JSON server (although i made these tests at different times so it doesn't show all the requests):
 
 ![log](https://i.imgur.com/SLP67Xq.png)
-
-
-Comprova el funcionament dels mètodes HEAD, OPTIONS, GET, POST, PUT i DELETE. Analitza els resultat i documenta'ls a un nou post del teu blog que s'haurà de titular Mètodes de petició HTTP.
