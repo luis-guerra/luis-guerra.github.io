@@ -198,8 +198,3 @@ As we can see, the entry was successfully deleted:
 Finally, we can see the transactions on the JSON server (although i made these tests at different times so it doesn't show all the requests):
 
 ![log](https://i.imgur.com/SLP67Xq.png)
-
-
-*this is a test :*
-
->what the fuck harry? what the fuck harry?what the fuck harry?what the fuck harry?what the fuck harry?what the fuck harry?what the fuck harry?what the fuck harry?what the fuck harry?what the fuck harry?what the fuck harry?what the fuck harry?what the fuck harry?what the fuck harry?what the fuck harry?
