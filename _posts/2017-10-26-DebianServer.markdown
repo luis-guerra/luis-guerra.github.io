@@ -49,8 +49,8 @@ apt-get install apache2
 We should change the VM network configuration to `bridged mode` to be able to connect to the server.
 
 Upon installation, the following directories will be created:
--**/var/www** -> Where our files will be stored and hosted by the server
--**/etc/apache2/** -> Apache configuration file, and other configuration options
+- **/var/www** -> Where our files will be stored and hosted by the server
+- **/etc/apache2/** -> Apache configuration file, and other configuration options
 
 Apache organises its configuration tools by directories, such as:
 
