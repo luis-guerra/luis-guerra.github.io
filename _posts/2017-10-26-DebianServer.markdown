@@ -30,15 +30,14 @@ To change the default SSH port, I need to change the configuration file `/etc/ss
 
 Now we restart the SSH server with:
 
-```bash
+```Shell
 /etc/init.d/ssh restart
-
 ```
 
 ### [](#header-3) Apache2 Server
 Installation:
 
-```bash
+```Shell
 apt-get install apache2
 ```
 
