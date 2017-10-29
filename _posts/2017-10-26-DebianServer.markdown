@@ -30,7 +30,7 @@ To change the default SSH port, I need to change the configuration file `/etc/ss
 
 Now we restart the SSH server with:
 
-```sh
+```Shell
 /etc/init.d/ssh restart
 ```
 
