@@ -24,7 +24,7 @@ I should be able to connect to my SSH server now, but first I have to set the VM
 
 ![hostonly](https://i.imgur.com/c8GZIxa.png)
 
-To change the default SSH port, just edit the configuration file `/etc/ssh/sshd_config` and change the `Port 22` to whatever you need:
+To change the default SSH port, just edit the configuration file **/etc/ssh/sshd_config** and change the `Port 22` to whatever you need:
 
 ```Shell
 nano /etc/ssh/ssh_config
@@ -72,13 +72,13 @@ Apache organises its configuration tools by directories, such as:
 *sites-enabled:*
 > Contains symlinks to the /etc/apache2/sites-available directory. When a configuration file in sites-available is symlinked, the site configured by it will be active once Apache is restarted.
 
-We can host a website by putting an HTML file under the `/var/www` directory. In this case this file will be called index.html and will only have a phrase:
+We can host a website by putting an HTML file under the **/var/www** directory. In this case this file will be called index.html and will only have a phrase:
 
 ```Shell
 echo "hello world" > /var/www/index.html
 ```
 
-To change the default location from /var/www we can edit `/etc/apache2/conf/httpd.conf`. In my case i will change it to another directory under /var/www named webs:
+To change the default location from /var/www we can edit **/etc/apache2/conf/httpd.conf**. In my case i will change it to another directory under /var/www named webs:
 
 Then move the file to the new directory:
 
@@ -90,7 +90,7 @@ mkdir webs
 mv index.html /webs/index.html
 ```
 
-If we want to change the default port (80) to another one, we simply edit the `/etc/apache2/ports.conf` file. We can listen to more than one port, if we want so. In this example I will only have the 8080 port:
+If we want to change the default port (80) to another one, we simply edit the **/etc/apache2/ports.conf** file. We can listen to more than one port, if we want so. In this example I will only have the 8080 port:
 
 ```
 Listen 8080
