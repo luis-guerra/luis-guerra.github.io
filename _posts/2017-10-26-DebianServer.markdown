@@ -41,9 +41,7 @@ Installation:
 apt-get install apache2
 ```
 
-We should change the VM network configuration to `bridged mode` to be able to connect to the server:
-
-![bridgedmode]()
+We should change the VM network configuration to `bridged mode` to be able to connect to the server.
 
 There are several useful directories that makes Apache2 a good and versatile web server:
 
@@ -73,21 +71,11 @@ echo "hello world" > /var/www/index.html
 
 To change the default location from /var/www we can edit `/etc/apache2/conf/httpd.conf`. In my case i will change it to another directory under /var/www named webs:
 
-![webs]()
-
-![httpd]()
-
 We can see the changes if I move the index.html to the new directory:
 ```bash
-mv index.html /webs
+cd /var/www
+
+mkdir webs
+
+mv index.html /webs/index.html
 ```
-
-
-
-daw08
-daw08
-admin
-https://wiki.debian.org/Apache
-https://stackoverflow.com/questions/5891802/how-do-i-change-the-root-directory-of-an-apache-server
-https://askubuntu.com/questions/170640/how-to-disable-apache2-server-from-auto-starting-on-boot
-https://www.cyberciti.biz/faq/linux-apache2-change-default-port-ipbinding/
