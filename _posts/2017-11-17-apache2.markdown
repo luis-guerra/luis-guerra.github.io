@@ -1,0 +1,42 @@
+---
+layout: post
+title:  "Apache Configuration and Modules"
+date:   2017-10-06 16:26:00 +0200
+---
+## [](#header-2) About this post
+In this post, ...
+
+## [](#header-2) Directives & Files
+
+I created two directories: web1, and web2 and created 2 html files inside the two directories, one public and one private
+
+```bash
+cd /var/www/html/
+mkdir web1
+mkdir web2
+
+cd web1/
+echo "public content" > public.html
+echo "private content" > private.txt
+
+cd ..
+
+cd web2/
+echo "public content" > public.html
+echo "private content" > private.txt
+```
+
+![public1]()
+![private1]()
+
+In the `/etc/apache2/sites-enabled` directory we can find a file called `000-default.conf`. With this file we can make directives to the default virtual hosts of the web server. Some of these directives can be:
+
+- **Directory** -> Enclose a group of directives that apply only to the named file-system directory and sub-directories
+- **Location** -> Applies the enclosed directives only to matching URLs
+- **Files** -> Contains directives that apply to matched filenames
+
+We can change this file and add a <Files> restriction to all the files called `"private.txt"`. As we can see, we can't really access the file or even look for it in the file browser:
+
+![private2]()
+
+![private3]()
