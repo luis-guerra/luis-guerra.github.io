@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Using dig, host and nslookup:"
+title:  "Using dig, host and nslookup"
 date:   2018-03-16 16:26:00 +0200
 ---
 
