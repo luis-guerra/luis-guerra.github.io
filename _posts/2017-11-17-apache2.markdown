@@ -35,7 +35,7 @@ In the `/etc/apache2/sites-enabled` directory we can find a file called `000-def
 - **Location** -> Applies the enclosed directives only to matching URLs
 - **Files** -> Contains directives that apply to matched filenames
 
-We can change this file and add a <Files> restriction to all the files called `"private.txt"`. As we can see, we can't really access the file or even look for it in the file browser:
+We can change this file and add a <Files> restriction to all the files called **"private.txt"**. As we can see, we can't really access the file or even look for it in the file browser:
 
 ![private2]()
 
