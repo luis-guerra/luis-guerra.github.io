@@ -4,7 +4,9 @@ title:  "Apache Configuration and Modules"
 date:   2017-11-17 16:26:00 +0200
 ---
 ## [](#header-2) About this post
-In this post, ...
+In this post, we'll explore the Apache directive system, and some of the modules that it offers, such as the PHP module.
+
+* * *
 
 ## [](#header-2) Directives & Files
 
@@ -26,8 +28,8 @@ echo "public content" > public.html
 echo "private content" > private.txt
 ```
 
-![public1]()
-![private1]()
+![public1](https://i.imgur.com/o9EO85J.png)
+![private1](https://i.imgur.com/xACKXyB.png)
 
 In the `/etc/apache2/sites-enabled` directory we can find a file called `000-default.conf`. With this file we can make directives to the default virtual hosts of the web server. Some of these directives can be:
 
@@ -35,8 +37,77 @@ In the `/etc/apache2/sites-enabled` directory we can find a file called `000-def
 - **Location** -> Applies the enclosed directives only to matching URLs
 - **Files** -> Contains directives that apply to matched filenames
 
-We can change this file and add a <Files> restriction to all the files called **"private.txt"**. As we can see, we can't really access the file or even look for it in the file browser:
+*Note that we can also establish directories to achieve the same results using .htaccess files.*
 
-![private2]()
+We can add `<Files>` directive so that every file called **"private.txt"** is hidden/restricted. As we can see, we can't really access the file or even look for it in the file browser:
 
-![private3]()
+![private2](https://i.imgur.com/tRfAje0.png)
+
+![private3](https://i.imgur.com/EEQkSJX.png)
+
+With the `<Directory>` directive we can specify the path to the applied directive. In this case I made so that the previous directive only applies to `/var/www/web2`:
+
+![private4](https://i.imgur.com/0yDDHzL.png)
+
+![private5](https://i.imgur.com/mXjjh7q.png)
+
+The directive `<Location>` would also yield the same result as `<Directory>` but it runs `after` the <Directory> sections and .htaccess files are read, and after the <Files> sections.
+
+**When to use <Location>:**
+> Use <Location> to apply directives to content that lives outside the filesystem. For content that lives in the filesystem, use <Directory> and <Files>. An exception is <Location "/">, which is an easy way to apply a configuration to the entire server.
+
+* * *
+
+## [](#header-2) Module Management
+
+Apache offers a variety of modules for almost any need regarding the HTTP server. In this example we'll be using the **php5** module.
+
+### [](#header-3) What is a module?
+
+>The modules allow for Apache to perform additional functions, such as natively rewriting URLs to support SSL encryption. This allows administrators to modify Apache to meet their needs; adding modules that are needed and removing ones that are not.
+
+To see the available modules we can write:
+```Shell
+ls /etc/apache2/mods-aviable
+```
+
+To see the mods currently installed we can run:
+```Shell
+apache2ctl -M
+```
+
+The current MPM type (Multi-processing module) is `Event` on my machine.
+We can see it by running:
+```Shell
+apache2ctl -V
+```
+
+We can start by installing the **php** module
+```Shell
+apt-get install php libapache2-mod-php
+systemctl restart apache2.service
+```
+
+Now we can write a small php file on the Apache root:
+```Shell
+echo "<?php phpinfo(); ?>" > index.php
+```
+
+We can change the default file the server will load (usually index.html) by modifying `/etc/apache2/apache2.conf` and finding the line **DirectoryIndex**.
+With this line it will load index.php by default and index.html if the first one is not found:
+```Java
+DirectoryIndex  index.php index.html
+```
+
+Restart the service
+```Shell
+systemctl restart apache2.service
+```
+
+If we were to enter the server now, it would show the PHPInfo, because the mod was correctly installed and is processing PHP correctly.
+We can disable the mod by editing the `php7.0.load` configuration file under `/etc/apache2/mods-enabled/` or by using this command:
+```Shell
+a2dismod php7.0
+```
+
+If we were to enter the server without the module installed, the server woudln't be able to process PHP and thus, it would show the following: *<?php phpinfo(); ?>* . Pure plain text because it doesn't understand PHP.
