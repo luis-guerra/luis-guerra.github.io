@@ -1,0 +1,54 @@
+---
+layout: post
+title:  "OpenSSL"
+date:   2017-12-17 14:58:00 +0200
+---
+
+### [](#header-3)  Configuring HTTPS on Apache2
+
+To start using HTTPS with out Apache server, we'll need to install openssl first
+
+
+```bash
+apt-get update
+apt-get install openssl
+```
+
+We should store our certificates somewhere, in this case it'll be under the directory `/root/`. We can generate a private key using oppenssl's `genrsa` command:
+
+```bash
+cd /root/
+openssl genrsa -des3 -out daw2.key 1024
+```
+
+We can generate a CSR with the following command:
+
+```bash
+openssl req -new -key daw2.key -out server-csr
+```
+
+When generating a certificate, it will asks for for information about the signer.
+
+Once done, we can auto sign our created certificate with the following command:
+
+```bash
+openssl x509 -req -days 365 -in server-csr -signkey daw2.key -out daw2.crt
+```
+
+We now copy both the key and the certificate on under the ssl directory `/etc/ssl`
+
+```bash
+cp /root/daw2.key /etc/ssl/private/daw2.key
+cp /root/daw2.crt /etc/ssl/certs/daw2.crt
+```
+
+To thest the certificate, I made a virtual host under the directory `/var/www/ssl` and just copied a test index.html under it.
+
+Now we can configure the virtual host to use the certificate and the key on its configuration file:
+
+**SSLCertificateFile /etc/ssl/certs/daw2.crt**
+**SSLCertificateKeyFile /etc/ssl/private/daw2.key**
+
+The last step, is to enable our virtual host with `a2ensite` and the apache ssl module with `a2enmod ssl`.
+
+All that's left to do is to restart the Apache2 service and update our host machine hosts' file in order to use HTTPS with our new virtual host.

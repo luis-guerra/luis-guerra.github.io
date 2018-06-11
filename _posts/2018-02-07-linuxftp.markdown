@@ -1,0 +1,122 @@
+---
+layout: post
+title:  "Installing and Configuring ProFTPd"
+date:   2018-02-07 18:18:20 +0200
+---
+
+### [](#header-3) Installing and configurint ProFTPd
+
+We can install ProFTPd with this command:
+
+```bash
+apt-get install proftpd
+```
+
+To receive anonymous connections, we will need to create or look for a directory to use as a public directory, in this case we created a new one:
+
+```bash
+mkdir /home/ftp/incoming
+
+chown -R ftp ftp/
+```
+
+We can edit the ProFTPd configuration file  `/etc/proftpd/proftpd.conf` and add the following at the end:
+
+```xml
+<Anonymous /home/ftp>
+  <Directory *>
+    <Limit WRITE>
+      DenyAll
+    </Limit>
+  </Directory>
+  <Directory incoming>
+    <Limit READ >
+      DenyAll
+    </Limit>
+    <Limit STOR>
+      AllowAll
+    </Limit>
+  </Directory>
+</Anonymous>
+```
+
+#### [](#header-4) Access Control
+
+For this example I'll create 2 test users:
+
+```bash
+useradd developer
+useradd admin
+```
+
+We can limit the directories these users can acecss, as well as their usage by editing proftpd `configuration file` adding the following:
+
+```xml
+<Directory /home/developer*>
+  User developer
+</Directory>
+
+<Directory /home/admin*>
+  User admin
+</Directory>
+
+<Directory /var/www/>
+  <Limit MKD RMD>
+    User developer admin
+  </Limit>
+</Directory>
+
+TransferRate RETER,STOR 20000 developer admin
+```
+
+#### [](#header-4) Secure Connection (FTPS)
+
+First, we have to generate the public key and certificate in order for the connection to be secure, we do this under the ProFTPd directory:
+
+```bash
+mkdir /etc/proftpd/ssl
+
+cd /etc/proftpd/ssl
+
+openssl req -new -x509 -days 365 -nodes -out /etc/proftpd/ssl/proftpd.cert.pem -keyout /etc/proftpd/ssl/proftpd.key.pem
+```
+
+We can make them readable by anyone with the `chmod` command:
+
+```bash
+chmod 600 /etc/proftpd/ssl/proftpd.*
+```
+
+Now we are ready to edit the ProFTPd's `TLS configuration file`:
+
+```bash
+nano /etc/proftpd/tls.conf
+```
+
+```xml
+<IfModule mod_tls.c>
+  TLSEngine                  on
+  TLSLog                     /var/log/proftpd/tls.log
+  TLSProtocol                TLSv1.2
+  TLSCipherSuite             AES128+EECDH:AES128+EDH
+  TLSOptions                 NoCertRequest AllowClientRenegotiations
+  TLSRSACertificateFile      /etc/proftpd/ssl/proftpd.cert.pem
+  TLSRSACertificateKeyFile   /etc/proftpd/ssl/proftpd.key.pem
+  TLSVerifyClient            off
+  TLSRequired                on
+  RequireValidShell          no
+</IfModule>
+```
+
+And include this file on the `ProFTPd configuration file` by adding this at the beginning:
+
+```bash
+Include /etc/proftpd/tls.conf
+```
+
+We should be able to connect to the FTP server securely after restarting the server:
+
+```bash
+service proftpd restart
+systemctl restart proftpd.service
+```
