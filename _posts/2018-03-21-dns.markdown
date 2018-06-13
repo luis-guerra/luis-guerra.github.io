@@ -1,0 +1,68 @@
+---
+layout: post
+title:  "Configuring a Domain Name Server"
+date:   2018-03-21 16:26:00 +0200
+---
+
+### [](#header-3) Configuring Bind
+
+Bind is the most widely used DNS software on the internet.
+Installing Bind is easy:
+```bash
+apt-get update
+apt-get install bind9
+```
+
+The Bind configuration directory is **/etc/bind/**.
+The file **named.conf.local** is the one used to add and define **zones**.
+In this case we'll add just one zone:
+
+```bash
+zone "m8dawuf3.net" {
+  type master;
+  file "db.m8dawuf3.net"
+}
+```
+
+Notice that we specified a file that doesn't exist yet. This file stores the records of the zone. We'll copy the original local file and edit it accordingly:
+
+```bash
+cp db.local db.m8dawuf3.net
+```
+![bind1](blob:https://imgur.com/fed6a721-19a2-4958-9d94-be5bab172db3)
+
+The next step is to change the default DNS server on our own server, we do this by editing the **resolv.conf** file under **/etc/**.
+We have to leave only this line on the file so it points to our own DNS:
+```bash
+nameserver 127.0.0.1
+```
+
+We can restart the service with:
+```bash
+service bind9 restart
+```
+
+Now we'll create a reverse domain lookup.
+We need to edit the file **named.conf.local** once again, in order to add the reverse zone:
+
+```bash
+zone "m8dawuf3.net" {
+  type master;
+  file "db.m8dawuf3.net"
+}
+
+zone "192.in-addr.arpa"{
+  type master;
+file "/etc/bind/db.192"
+}
+```
+
+Now we copy the original reverse file:
+```bash
+cp db.127 db.192
+```
+
+And edit it so it looks like this:
+![bin2](https://i.imgur.com/mAFGqxw.png)
+
+We should restart the service once again in order for the changes to be implemented.

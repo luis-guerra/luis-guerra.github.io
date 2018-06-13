@@ -1,0 +1,111 @@
+---
+layout: post
+title:  "Version Control"
+date:   2018-05-19 16:26:00 +0200
+---
+
+### [](#header-3) About this Post
+In this post I'll be covering [git](https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control), a version control technology that allows us to create branches and merge files and changes, and [GitHub](https://github.com) an online platform that allows users to have their own remote public or private repositories.
+
+### [](#header-3) About Git
+[Git](https://git-scm.com) is an open source distributed version control system.
+With Git, we can easily separate two different workflows and merge them together as we develop.
+The main concept of Git happens inside a **repository**.
+We store our source code within a repository.
+It also allows us to have **branches**, a concept that is essentially a duplication of an object under revision control. We can fork, merge and delete branches.
+The main branch of any project is often called **master** or **trunk**, and cannot be named nor removed.
+With Git, we can include or exclude the files we want to **stage**, any items staged will be added to the next **commit**.
+Committing is the act of adding the staged changes to repository as a version.
+
+### [](#header-3) Basic Git commands:
+
+#### [](#header-4) Configuring our local user
+```bash
+git config --global user.name "[name]"
+git config --global user.email "[email address]"
+```
+
+#### [](#header-4) Initialising a repository
+```bash
+git init
+```
+
+#### [](#header-4) Get repository status
+```bash
+git status
+```
+
+#### [](#header-4) Staging files
+```bash
+git add [file name]
+#or to add all
+git add *
+```
+
+#### [](#header-4) Commiting our changes
+```bash
+git commit -m "Commit message"
+```
+
+#### [](#header-4) Review history
+```bash
+git log #lists history for the current branch
+git diff [branch name] [branch name] #shows differences between two branches
+git show [commit] #outputs metadata and contents changes of the specified commit
+```
+
+#### [](#header-4) Show current branch
+```bash
+git branch
+```
+
+#### [](#header-4) Create a new branch
+```bash
+git branch [branch name]
+```
+
+#### [](#header-4) Move to a branch
+```bash
+git checkout [branch name]
+```
+
+#### [](#header-4) Merging branches
+```bash
+git merge [source branch] #merges the current branch with the source branch
+```
+
+### [](#header-3) About GitHub
+[GitHub](https://github.com) is a hosting service for version control that uses Git.
+GitHub allows us to have remote (online) repositories to commit from our local source code.
+GitHub is the most popular version control service on the internet.
+It currently has more than 28 million users and hosts over 85 million repositories.
+
+To start using GitHub, you must be a [registered](https://github.com/join?source=header-home) member on the platform.
+
+Once a member, you can create your very own repository.
+To do so, you must log in and click on new repository at the bottom left of the window:
+![github](https://i.imgur.com/XkxiYHl.png)
+
+It's very intuitive to finish the process. You must name your repository and give it a description if you wish. Upgraded users can make their repositories **private**.
+![github2](https://i.imgur.com/mds5mtG.png)
+
+To sync your newly created repository with your local one, you'll need to add it as an **origin**:
+```bash
+git remote add origin https://github.com/user/repo.git
+```
+
+You can check your current remote origin with
+```bash
+git remote -v
+```
+
+Now you can push or pull code from your remote repository.
+To push code into the remote repository, you must commit first and then push it with this command:
+```bash
+git push origin [branch name] #master being the default branch
+```
+
+You can also clone remotes with
+```bash
+git clone https://github.com/user/repo.git
+```
