@@ -29,7 +29,7 @@ Notice that we specified a file that doesn't exist yet. This file stores the rec
 ```bash
 cp db.local db.m8dawuf3.net
 ```
-![bind1](blob:https://imgur.com/fed6a721-19a2-4958-9d94-be5bab172db3)
+![bind1](https://i.imgur.com/GAKj1WD.png)
 
 The next step is to change the default DNS server on our own server, we do this by editing the **resolv.conf** file under **/etc/**.
 We have to leave only this line on the file so it points to our own DNS:
